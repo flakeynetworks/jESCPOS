@@ -1,19 +1,21 @@
+package uk.co.flakeynetworks.escposprinter;
+
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class ESCPOSPrinter {
+public class ESCPOSBasicPrinter implements ESCPOSPrinter {
 
 
     private OutputStream output;
 
 
-    public ESCPOSPrinter(OutputStream outputStream) {
+    public ESCPOSBasicPrinter(OutputStream outputStream) {
 
         output = outputStream;
     } // end of constructor
 
 
-
+    @Override
     public ESCPOSPrinter feedLine() {
 
         try {
@@ -25,6 +27,7 @@ public class ESCPOSPrinter {
     } // end of feedLine
 
 
+    @Override
     public ESCPOSPrinter cut() {
 
         // Cut command
@@ -44,9 +47,11 @@ public class ESCPOSPrinter {
     } // end of cut
 
 
+    @Override
     public ESCPOSPrinter underline() { return underline(true); } // end of underline
 
 
+    @Override
     public ESCPOSPrinter underline(boolean thickLine) {
 
         try {
@@ -65,6 +70,7 @@ public class ESCPOSPrinter {
     } // end of underline
 
 
+    @Override
     public ESCPOSPrinter underlineEnd() {
 
         try {
@@ -84,6 +90,7 @@ public class ESCPOSPrinter {
      * in effect when the power was turned on.
      * @return
      */
+    @Override
     public ESCPOSPrinter initialize() {
 
         try {
@@ -97,6 +104,7 @@ public class ESCPOSPrinter {
     } // end of initialize
 
 
+    @Override
     public ESCPOSPrinter emphasize() {
 
         try {
@@ -110,6 +118,8 @@ public class ESCPOSPrinter {
         return this;
     } // end of emphasize
 
+
+    @Override
     public ESCPOSPrinter emphasizeEnd() {
 
         try {
@@ -124,6 +134,7 @@ public class ESCPOSPrinter {
     } // end of emphasize
 
 
+    @Override
     public ESCPOSPrinter center() {
 
         try {
@@ -138,6 +149,7 @@ public class ESCPOSPrinter {
     } // end of center
 
 
+    @Override
     public ESCPOSPrinter alignLeft() {
 
         try {
@@ -152,6 +164,7 @@ public class ESCPOSPrinter {
     } // end of leftAlign
 
 
+    @Override
     public ESCPOSPrinter doubleStrike() {
 
         try {
@@ -166,6 +179,7 @@ public class ESCPOSPrinter {
     } // end of doubleStrike
 
 
+    @Override
     public ESCPOSPrinter doubleStrikeEnd() {
 
         try {
@@ -180,6 +194,7 @@ public class ESCPOSPrinter {
     } // end of doubleStrikeEnd
 
 
+    @Override
     public ESCPOSPrinter alignRight() {
 
         try {
@@ -198,6 +213,7 @@ public class ESCPOSPrinter {
      *
      * @param  numberOfLines number of lines to feed 0 - 255
      */
+    @Override
     public ESCPOSPrinter feedLines(int numberOfLines) {
 
         // Validate the number of lines
@@ -216,6 +232,7 @@ public class ESCPOSPrinter {
     } // end of feedLines
 
 
+    @Override
     public ESCPOSPrinter newLine() {
 
         try {
@@ -227,15 +244,23 @@ public class ESCPOSPrinter {
     } // end of newLine
 
 
+    @Override
     public ESCPOSPrinter useFontA() { return useFont(0); } // end of useFontA
+    @Override
     public ESCPOSPrinter useFontB() { return useFont(1); } // end of useFontB
+    @Override
     public ESCPOSPrinter useFontC() { return useFont(2); } // end of useFontC
+    @Override
     public ESCPOSPrinter useFontD() { return useFont(3); } // end of useFontD
+    @Override
     public ESCPOSPrinter useFontE() { return useFont(4); } // end of useFontE
+    @Override
     public ESCPOSPrinter useSpecialFontA() { return useFont(97); } // end of useSpecialFontA
+    @Override
     public ESCPOSPrinter useSpecialFontB() { return useFont(98); } // end of useSpecialFontB
 
 
+    @Override
     public ESCPOSPrinter rotate90() {
 
         try {
@@ -251,6 +276,7 @@ public class ESCPOSPrinter {
     } // end of rotate90CCW
 
 
+    @Override
     public ESCPOSPrinter unrotate90() {
 
         try {
@@ -266,6 +292,7 @@ public class ESCPOSPrinter {
     } // end of rotate90CCW
 
 
+    @Override
     public ESCPOSPrinter flip180() {
 
         try {
@@ -281,6 +308,7 @@ public class ESCPOSPrinter {
     } // end of flip180
 
 
+    @Override
     public ESCPOSPrinter unflip180() {
 
         try {
@@ -317,6 +345,7 @@ public class ESCPOSPrinter {
      * @param heightFactor 1 - 8 1x, 2x, 3x .. 8x
      * @return
      */
+    @Override
     public ESCPOSPrinter fontSizeFactor(int widthFactor, int heightFactor) {
 
         if(widthFactor < 1) widthFactor = 1;
@@ -348,11 +377,13 @@ public class ESCPOSPrinter {
      * @param factor 1 - 8 1x, 2x, 3x .. 8x
      * @return
      */
+    @Override
     public ESCPOSPrinter fontSizeFactor(int factor) {
         return fontSizeFactor(factor, factor);
     } // end of fontSizeFactor
 
 
+    @Override
     public ESCPOSPrinter whiteOnBlack() {
 
         try {
@@ -368,6 +399,7 @@ public class ESCPOSPrinter {
     } // end of whiteOnBlack
 
 
+    @Override
     public ESCPOSPrinter blackOnWhite() {
 
         try {
@@ -383,7 +415,7 @@ public class ESCPOSPrinter {
     } // end of blackOnWhite
 
 
-
+    @Override
     public ESCPOSPrinter print(String text) {
 
         try {
@@ -395,6 +427,7 @@ public class ESCPOSPrinter {
     } // end of write
 
 
+    @Override
     public ESCPOSPrinter println(String test) {
 
         print(test);
@@ -404,6 +437,7 @@ public class ESCPOSPrinter {
     } // end of println
 
 
+    @Override
     public ESCPOSPrinter smoothingOn() {
 
         try {
@@ -418,7 +452,8 @@ public class ESCPOSPrinter {
         return this;
     } // end of smoothingOn
 
-
+    
+    @Override
     public ESCPOSPrinter smoothingOff() {
 
         try {
@@ -434,6 +469,7 @@ public class ESCPOSPrinter {
     } // end of smoothingOff
 
 
+    @Override
     public ESCPOSPrinter printBarcode(String contents) {
 
         try {
