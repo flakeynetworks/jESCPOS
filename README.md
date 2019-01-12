@@ -18,3 +18,5 @@ printer.newLine()
         .println("World")
         .feedLines(2)
         .cut();
+
+https://flakeynetworks.co.uk/jescpos/
