@@ -1,13 +1,13 @@
 package uk.co.flakeynetworks.escposprinter.commands.GS;
 
-import uk.co.flakeynetworks.escposprinter.ESCPOSBasicPrinter;
 import uk.co.flakeynetworks.escposprinter.ESCPOSCommand;
 import uk.co.flakeynetworks.escposprinter.ESCPOSPrinter;
+import uk.co.flakeynetworks.escposprinter.commands.ESCPOSCommands;
 
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class NVGraphicL implements ESCPOSCommand {
+public class NVGraphic8L implements ESCPOSCommand {
 
 
     private final ESCPOSPrinter printer;
@@ -16,7 +16,7 @@ public class NVGraphicL implements ESCPOSCommand {
     private final byte[] image;
 
 
-    public NVGraphicL(ESCPOSPrinter printer, int width, int height, byte[] buffer) {
+    public NVGraphic8L(ESCPOSPrinter printer, int width, int height, byte[] buffer) {
 
         this.printer = printer;
         this.width = width;
@@ -33,21 +33,35 @@ public class NVGraphicL implements ESCPOSCommand {
         try {
             // Number of bytes = (width * height) / 8 + 11
             int numberOfBytes = image.length + 11;
-            int pH = numberOfBytes / 256;
-            int pL = numberOfBytes % 256;
+            int p4 = numberOfBytes / 16777216;
+            numberOfBytes = numberOfBytes % 16777216;
+
+            int p3 = numberOfBytes / 65536;
+            numberOfBytes = numberOfBytes % 65536;
+
+            int p2 = numberOfBytes / 256;
+            numberOfBytes = numberOfBytes % 256;
+
+            int p1 = numberOfBytes;
 
             // GS
             output.write(ESCPOSCommands.GS);
 
-            // (L
-            output.write(0x28);
+            // 8L
+            output.write(0x38);
             output.write(0x4C);
 
-            // pL
-            output.write((byte) pL);
+            // p1
+            output.write((byte) p1);
 
-            // pH
-            output.write((byte) pH);
+            // p2
+            output.write((byte) p2);
+
+            // p3
+            output.write((byte) p3);
+
+            // p4
+            output.write((byte) p4);
 
             // m
             output.write(0x30);

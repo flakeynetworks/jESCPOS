@@ -1,3 +1,4 @@
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import uk.co.flakeynetworks.escposprinter.ESCPOSBasicPrinter;
@@ -69,4 +70,15 @@ public class TestPrinter {
         printer.printImage(flakeynetworksLogo);
         printer.feedAndCut();
     } // end of testPrintText
+
+
+    @After
+    public void waitForBufferToClear() {
+
+        try {
+            Thread.sleep(1000*5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } // end of catch
+    } // end of waitForBufferToClear
 } // end of TestPrinter

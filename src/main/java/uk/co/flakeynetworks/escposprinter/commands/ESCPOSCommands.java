@@ -1,4 +1,4 @@
-package uk.co.flakeynetworks.escposprinter.commands.GS;
+package uk.co.flakeynetworks.escposprinter.commands;
 
 public class ESCPOSCommands {
 

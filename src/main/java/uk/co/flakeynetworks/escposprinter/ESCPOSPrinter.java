@@ -1,6 +1,7 @@
 package uk.co.flakeynetworks.escposprinter;
 
 import java.awt.image.BufferedImage;
+import java.io.OutputStream;
 
 @SuppressWarnings({"unused", "UnusedReturnValue"})
 public interface ESCPOSPrinter {
@@ -52,4 +53,6 @@ public interface ESCPOSPrinter {
     ESCPOSPrinter printBarcode(String contents);
     ESCPOSPrinter printImage(BufferedImage image);
     ESCPOSPrinter printImage(int width, int height, byte[] image);
+
+    OutputStream getOutputStream();
 } // end of ESCPOSPrinter

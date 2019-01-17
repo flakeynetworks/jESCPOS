@@ -2,20 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba79fde0-f4cb-447d-8469-f6c0cf154f1a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/commands/ESCPOSCommands.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/commands/GS/NVGraphic8L.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/commands/GS/NVGraphicL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSBasicPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSBasicPrinter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/graphics/BasicProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/graphics/BasicProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/greyscale.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/greyscale.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestGraphicsProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestGraphicsProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSPrinter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/TestPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestPrinter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/sampleGraphics/flakeynetworks_logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/threshold.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/thresholdMean.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/thresholdMean.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/thresholdMedian.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/thresholdMedian.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/thresholdWeight_100.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/thresholdWeight_25.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/thresholdWeight_75.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/thresholdWeight_90.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/thresholdWeight_90.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/sampleGraphics/flakeynetworks_logo_small.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/sampleGraphics/flakeynetworks_logo_small.jpg" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -34,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TestPrinter.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TestPrinter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/TestPrinter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="55" column="17" lean-forward="true" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+            <state relative-caret-position="379">
+              <caret line="78" column="31" selection-start-line="78" selection-start-column="31" selection-end-line="78" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -49,9 +44,10 @@
       <file leaf-file-name="ESCPOSPrinter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSPrinter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="52" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="481">
+              <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#45#95#0" expanded="true" />
               </folding>
             </state>
@@ -61,8 +57,49 @@
       <file leaf-file-name="ESCPOSBasicPrinter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSBasicPrinter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="163" column="29" lean-forward="true" selection-start-line="163" selection-start-column="29" selection-end-line="163" selection-end-column="29" />
+            <state relative-caret-position="232">
+              <caret line="77" column="27" selection-start-line="77" selection-start-column="27" selection-end-line="77" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#11071#11072#0" expanded="true" />
+                <element signature="e#11124#11125#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NVGraphic8L.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/commands/GS/NVGraphic8L.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="9" column="24" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ESCPOSCommands.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/commands/ESCPOSCommands.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ESCPOSCommand.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="32" lean-forward="true" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NVGraphicL.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/commands/GS/NVGraphicL.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="31" column="80" selection-start-line="31" selection-start-column="80" selection-end-line="31" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,10 +107,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BasicProcessor.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BasicProcessor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/graphics/BasicProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="544">
               <caret line="47" column="45" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
             </state>
           </provider>
@@ -98,7 +135,11 @@
       <find>printImage</find>
       <find>0x1B</find>
       <find>0x1D</find>
+      <find>ESC</find>
     </findStrings>
+    <replaceStrings>
+      <replace>ESCPOSCommands.ESC</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -402,7 +443,6 @@
         <option value="$PROJECT_DIR$/src/main/java/ESCCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/ESCPOSPrinter.java" />
         <option value="$PROJECT_DIR$/src/main/java/main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSPrinter.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/GraphicProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/graphics/GraphicsFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/graphics/GreyscaleFilter.java" />
@@ -410,10 +450,15 @@
         <option value="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/graphics/MedianThresholdFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/graphics/GraphicsProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/graphics/WeightedThresholdFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSBasicPrinter.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestGraphicsProcessor.java" />
-        <option value="$PROJECT_DIR$/src/test/java/TestPrinter.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/graphics/BasicProcessor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSPrinter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/commands/GS/ESCPOSCommands.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/commands/GS/NVGraphicL.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/commands/GS/NVGraphic8L.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSBasicPrinter.java" />
+        <option value="$PROJECT_DIR$/src/test/java/TestPrinter.java" />
       </list>
     </option>
   </component>
@@ -453,7 +498,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="escposprinter" type="462c0819:PsiDirectoryNode" />
-              <item name="graphics" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jESCPOS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="escposprinter" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+              <item name="GS" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jESCPOS" type="b2602c69:ProjectViewProjectNode" />
@@ -479,6 +532,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="uk.co.flakeynetworks.escposprinter.commands.GS" />
       <recent name="uk.co.flakeynetworks.escposprinter.graphics" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
@@ -595,34 +649,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestPrinter - 2019.01.17 at 23h 58m 14s.xml">
+    <history-entry file="TestPrinter - 2019.01.18 at 00h 44m 23s.xml">
       <configuration name="TestPrinter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestPrinter - 2019.01.17 at 23h 59m 03s.xml">
+    <history-entry file="TestPrinter - 2019.01.18 at 00h 44m 45s.xml">
       <configuration name="TestPrinter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestPrinter - 2019.01.17 at 23h 59m 11s.xml">
+    <history-entry file="TestPrinter - 2019.01.18 at 00h 46m 12s.xml">
       <configuration name="TestPrinter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestPrinter - 2019.01.17 at 23h 59m 45s.xml">
+    <history-entry file="TestPrinter - 2019.01.18 at 00h 46m 26s.xml">
       <configuration name="TestPrinter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestPrinter - 2019.01.18 at 00h 00m 10s.xml">
+    <history-entry file="TestPrinter - 2019.01.18 at 00h 46m 44s.xml">
       <configuration name="TestPrinter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestPrinter - 2019.01.18 at 00h 00m 38s.xml">
+    <history-entry file="TestPrinter - 2019.01.18 at 00h 46m 57s.xml">
       <configuration name="TestPrinter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestPrinter - 2019.01.18 at 00h 02m 49s.xml">
+    <history-entry file="TestPrinter - 2019.01.18 at 00h 47m 40s.xml">
       <configuration name="TestPrinter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestPrinter - 2019.01.18 at 00h 03m 16s.xml">
+    <history-entry file="TestPrinter - 2019.01.18 at 00h 48m 10s.xml">
       <configuration name="TestPrinter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestPrinter - 2019.01.18 at 00h 03m 43s.xml">
+    <history-entry file="TestPrinter - 2019.01.18 at 00h 48m 18s.xml">
       <configuration name="TestPrinter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestPrinter - 2019.01.18 at 00h 04m 43s.xml">
+    <history-entry file="TestPrinter - 2019.01.18 at 00h 48m 33s.xml">
       <configuration name="TestPrinter" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -632,23 +686,23 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49895832" weight="0.32943678" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4984375" weight="0.32943678" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.4546875" side_tool="true" visible="true" weight="0.32943678" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.45572916" side_tool="true" visible="true" weight="0.32943678" />
       <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5453125" visible="true" weight="0.32943678" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5442708" visible="true" weight="0.32943678" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49603805" visible="true" weight="0.12447917" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
       <window_info anchor="right" id="Gradle" order="4" />
       <window_info id="Structure" order="1" sideWeight="0.503962" side_tool="true" visible="true" weight="0.12447917" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49427083" weight="0.3995749" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49375" weight="0.3995749" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -664,21 +718,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSBasicPrinter.java</url>
-          <line>665</line>
+          <line>418</line>
           <properties />
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSBasicPrinter.java</url>
-          <line>85</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSBasicPrinter.java</url>
-          <line>157</line>
-          <properties />
-          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="16" />
@@ -703,6 +745,8 @@
           <caret line="454" column="4" selection-start-line="454" selection-start-column="4" selection-end-line="454" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#11071#11072#0" expanded="true" />
+            <element signature="e#11124#11125#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -712,6 +756,7 @@
         <state relative-caret-position="34">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#45#95#0" expanded="true" />
           </folding>
         </state>
@@ -724,6 +769,8 @@
           <caret line="414" selection-start-line="414" selection-end-line="414" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#11071#11072#0" expanded="true" />
+            <element signature="e#11124#11125#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -735,6 +782,8 @@
           <caret line="414" selection-start-line="414" selection-end-line="414" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#11071#11072#0" expanded="true" />
+            <element signature="e#11124#11125#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -796,16 +845,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSPrinter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-          <folding>
-            <element signature="e#45#95#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TestGraphicsProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="73">
@@ -816,30 +855,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSBasicPrinter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="163" column="29" lean-forward="true" selection-start-line="163" selection-start-column="29" selection-end-line="163" selection-end-column="29" />
+        <state relative-caret-position="34">
+          <caret line="2" column="32" lean-forward="true" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSPrinter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#45#95#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/commands/ESCPOSCommands.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/commands/GS/NVGraphicL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="31" column="80" selection-start-line="31" selection-start-column="80" selection-end-line="31" selection-end-column="80" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestPrinter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/commands/GS/NVGraphic8L.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="55" column="17" lean-forward="true" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+        <state relative-caret-position="68">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/ESCPOSBasicPrinter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="77" column="27" selection-start-line="77" selection-start-column="27" selection-end-line="77" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#11071#11072#0" expanded="true" />
+            <element signature="e#11124#11125#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/flakeynetworks/escposprinter/graphics/BasicProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
+        <state relative-caret-position="544">
           <caret line="47" column="45" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestPrinter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="78" column="31" selection-start-line="78" selection-start-column="31" selection-end-line="78" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
