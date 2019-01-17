@@ -1,5 +1,10 @@
 package uk.co.flakeynetworks.escposprinter;
 
+import uk.co.flakeynetworks.escposprinter.graphics.BasicProcessor;
+import uk.co.flakeynetworks.escposprinter.graphics.GraphicsProcessor;
+import uk.co.flakeynetworks.escposprinter.graphics.GreyscaleFilter;
+import uk.co.flakeynetworks.escposprinter.graphics.MeanThresholdFilter;
+
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -150,6 +155,10 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
     public ESCPOSPrinter printImage(int width, int height, byte[] image) {
 
         try {
+            // Number of bytes = (width * height) / 8 + 11
+            int numberOfBytes = image.length + 11;
+            int pH = numberOfBytes / 256;
+            int pL = numberOfBytes % 256;
 
             // GS
             output.write(GS);
@@ -159,10 +168,10 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
             output.write(0x4C);
 
             // pL
-            output.write(0x8B);
+            output.write((byte) pL);
 
             // pH
-            output.write(0x07);
+            output.write((byte) pH);
 
             // m
             output.write(0x30);
@@ -181,13 +190,13 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
             output.write(0x01);
 
             //xL
-            output.write(0x80);
+            output.write((byte) width);
 
             //xH
             output.write(0x00);
 
             // yL
-            output.write(0x78);
+            output.write((byte) height);
 
             // yH
             output.write(0x00);
@@ -198,6 +207,8 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
             // d ... dk
             output.write(image);
 
+
+            // Send command to print the image
             output.write(GS);
             // (
             output.write(0x28);
@@ -228,7 +239,12 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
     public ESCPOSPrinter printImage(BufferedImage image) {
 
         // Convert the image to greyscale
+        GraphicsProcessor processor = new BasicProcessor();
+        image = processor.applyFilter(image, new GreyscaleFilter());
+        image = processor.applyFilter(image, new MeanThresholdFilter());
 
+        byte[] data = processor.convertToArray(image);
+        printImage(image.getWidth(), image.getHeight(), data);
         return this;
     } // end of printImage
 

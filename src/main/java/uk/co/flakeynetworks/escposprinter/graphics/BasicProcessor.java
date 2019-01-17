@@ -27,8 +27,8 @@ public class BasicProcessor implements GraphicsProcessor {
         int bitCounter = 0;
         int currentByte = 0x00;
 
-        for(int x = 0; x < width; x++) {
-            for(int y = 0; y < height; y++) {
+        for(int x = 0; x < height; x++) {
+            for(int y = 0; y < width; y++) {
 
                 // Check if we have filled a byte, then add this to the array and reset values
                 if(bitCounter > 7) {
@@ -45,11 +45,11 @@ public class BasicProcessor implements GraphicsProcessor {
                 } // end of if
 
 
-                int value = image.getRGB(x, y) & 0xff;
+                int value = image.getRGB(y, x) & 0xff;
                 currentByte = currentByte << 1;
 
                 // Check if this needs to be black
-                if(value > 128)
+                if(value < 128)
                     currentByte = currentByte | 0x01;
 
                 bitCounter++;

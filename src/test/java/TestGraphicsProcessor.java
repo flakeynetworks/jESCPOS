@@ -18,7 +18,7 @@ public class TestGraphicsProcessor {
         processor = new BasicProcessor();
 
         try {
-            flakeynetworksLogo = ImageIO.read(new File("sampleGraphics", "flakeynetworks_logo.jpg"));
+            flakeynetworksLogo = ImageIO.read(new File("sampleGraphics", "flakeynetworks_logo_small.jpg"));
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -77,7 +77,7 @@ public class TestGraphicsProcessor {
     @Test
     public void testWeightThreshold() {
 
-        int weightValue = 90;
+        int weightValue = 95;
 
         BufferedImage image = processor.applyFilter(flakeynetworksLogo, new GreyscaleFilter());
         BufferedImage threshold = processor.applyFilter(image, new WeightedThresholdFilter(weightValue));
