@@ -1,5 +1,6 @@
 package uk.co.flakeynetworks.escposprinter;
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -7,6 +8,8 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
 
 
     private OutputStream output;
+    private int ESC = 0x1B;
+    private int GS = 0x1D;
 
 
     public ESCPOSBasicPrinter(OutputStream outputStream) {
@@ -19,6 +22,8 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
     public ESCPOSPrinter feedLine() {
 
         try {
+
+            // Epson command LF
             output.write(0x0A);
             output.flush();
         } catch (IOException ignored) {} // end of catch
@@ -28,11 +33,212 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
 
 
     @Override
+    // TODO need to check
+    public ESCPOSPrinter feedAndCut() {
+
+        try {
+
+            // Epson command GS "V"
+            output.write(GS);
+            output.write(0x56);
+            output.write(0x42);
+            output.write(0x00);
+
+            output.flush();
+        } catch (IOException ignored) {} // end of catch
+
+        return this;
+    } // end of feedAndCut
+
+
+    @Override
+    // TODO NEED TO CHECK THIS!
+    public ESCPOSPrinter soundBuzzer() {
+
+        try {
+
+            // Epson command DLE DC4 (fn=3)
+            output.write(0x10);
+            output.write(0x14);
+            output.write(0x03);
+
+            // a
+            output.write(0x01);
+            output.write(0x10);
+        } catch (IOException ignored) { } // end of catch
+
+        return this;
+    } // end of soundsBuzzer
+
+
+    /*@Override
+    // TODO NOT WORKING
+    public ESCPOSPrinter printImage(int width, int height, byte[] image) {
+
+        try {
+
+            // GS
+            output.write(GS);
+
+            // (L
+            output.write(0x28);
+            output.write(0x4C);
+
+            // pL
+            output.write(0x8B);
+
+            // pH
+            output.write(0x07);
+
+            // m
+            output.write(0x30);
+
+            //fn
+            output.write(0x43);
+
+            //a
+            output.write(0x30);
+
+            //kc1/Kc
+            output.write(0x47);
+            output.write(0x31);
+
+            //b
+            output.write(0x01);
+
+            //xL
+            output.write(0x80);
+
+            //xH
+            output.write(0x00);
+
+            // yL
+            output.write(0x78);
+
+            // yH
+            output.write(0x00);
+
+            // c
+            output.write(78);
+
+            // d ... dk
+            output.write(image);
+
+            output.write(GS);
+            // (
+            output.write(0x28);
+            // L
+            output.write(0x4C);
+            output.write(0x06);
+            output.write(0x00);
+            output.write(0x30);
+            output.write(0x45);
+            // G1
+            output.write(0x47);
+            output.write(0x31);
+            //x
+            output.write(0x01);
+            //y
+            output.write(0x01);
+        } catch (IOException ignored) {
+            ignored.printStackTrace();
+        } // end of catch
+
+        return this;
+    } // end of printImage*/
+
+    public ESCPOSPrinter printImage(int width, int height, byte[] image) {
+
+        try {
+
+            // GS
+            output.write(GS);
+
+            // (L
+            output.write(0x28);
+            output.write(0x4C);
+
+            // pL
+            output.write(0x8B);
+
+            // pH
+            output.write(0x07);
+
+            // m
+            output.write(0x30);
+
+            //fn
+            output.write(0x43);
+
+            //a
+            output.write(0x30);
+
+            //kc1/Kc
+            output.write(0x47);
+            output.write(0x31);
+
+            //b
+            output.write(0x01);
+
+            //xL
+            output.write(0x80);
+
+            //xH
+            output.write(0x00);
+
+            // yL
+            output.write(0x78);
+
+            // yH
+            output.write(0x00);
+
+            // c
+            output.write(0x31);
+
+            // d ... dk
+            output.write(image);
+
+            output.write(GS);
+            // (
+            output.write(0x28);
+            // L
+            output.write(0x4C);
+            output.write(0x06);
+            output.write(0x00);
+            output.write(0x30);
+            output.write(0x45);
+            // G1
+            output.write(0x47);
+            output.write(0x31);
+            //x
+            output.write(0x01);
+            //y
+            output.write(0x01);
+
+
+        } catch (IOException ignored) {
+            ignored.printStackTrace();
+        } // end of catch
+
+        return this;
+    } // end of printImage
+
+
+    @Override
+    public ESCPOSPrinter printImage(BufferedImage image) {
+
+        // Convert the image to greyscale
+
+        return this;
+    } // end of printImage
+
+
+    @Override
     public ESCPOSPrinter cut() {
 
         // Cut command
         try {
-            output.write(0x1D);
+            output.write(GS);
             output.write(0x56);
 
             // Full cut
@@ -52,10 +258,26 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
 
 
     @Override
+    public ESCPOSPrinter tab() {
+
+        // Tab command
+        // Epson command HT
+        try {
+            output.write(0x09);
+            output.flush();
+            // Partial cut
+            //stream.write(0x01);
+        } catch (IOException ignored) { } // end of catch
+
+        return this;
+    } // end of tab
+
+
+    @Override
     public ESCPOSPrinter underline(boolean thickLine) {
 
         try {
-            output.write(0x1B);
+            output.write(ESC);
             output.write(0x2D);
 
             if(thickLine)
@@ -71,10 +293,21 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
 
 
     @Override
+    public ESCPOSPrinter flush() {
+
+        try {
+            output.flush();
+        } catch (IOException ignored) { } // end of catch
+
+        return this;
+    } // end of flush
+
+
+    @Override
     public ESCPOSPrinter underlineEnd() {
 
         try {
-            output.write(0x1B);
+            output.write(ESC);
             output.write(0x2D);
             output.write(0);
 
@@ -94,7 +327,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
     public ESCPOSPrinter initialize() {
 
         try {
-            output.write(0x1B);
+            output.write(ESC);
             output.write(0x40);
 
             output.flush();
@@ -108,7 +341,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
     public ESCPOSPrinter emphasize() {
 
         try {
-            output.write(0x1B);
+            output.write(ESC);
             output.write(0x45);
             output.write(1);
 
@@ -123,7 +356,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
     public ESCPOSPrinter emphasizeEnd() {
 
         try {
-            output.write(0x1B);
+            output.write(ESC);
             output.write(0x45);
             output.write(0);
 
@@ -138,7 +371,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
     public ESCPOSPrinter center() {
 
         try {
-            output.write(0x1B);
+            output.write(ESC);
             output.write(0x61);
             output.write(1);
 
@@ -153,7 +386,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
     public ESCPOSPrinter alignLeft() {
 
         try {
-            output.write(0x1B);
+            output.write(ESC);
             output.write(0x61);
             output.write(0);
 
@@ -168,7 +401,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
     public ESCPOSPrinter doubleStrike() {
 
         try {
-            output.write(0x1B);
+            output.write(ESC);
             output.write(0x47);
             output.write(1);
 
@@ -183,7 +416,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
     public ESCPOSPrinter doubleStrikeEnd() {
 
         try {
-            output.write(0x1B);
+            output.write(ESC);
             output.write(0x61);
             output.write(0);
 
@@ -198,7 +431,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
     public ESCPOSPrinter alignRight() {
 
         try {
-            output.write(0x1B);
+            output.write(ESC);
             output.write(0x61);
             output.write(2);
 
@@ -221,7 +454,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
 
         try {
             // Feed lines
-            output.write(0x1B);
+            output.write(ESC);
             output.write(0x64);
             output.write(numberOfLines); // number of lines to feed
 
@@ -265,7 +498,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
 
         try {
             // Feed lines
-            output.write(0x1B);
+            output.write(ESC);
             output.write(0x56);
             output.write(1);
 
@@ -281,7 +514,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
 
         try {
             // Feed lines
-            output.write(0x1B);
+            output.write(ESC);
             output.write(0x56);
             output.write(0);
 
@@ -297,7 +530,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
 
         try {
             // Feed lines
-            output.write(0x1B);
+            output.write(ESC);
             output.write(0x7B);
             output.write(1);
 
@@ -313,7 +546,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
 
         try {
             // Feed lines
-            output.write(0x1B);
+            output.write(ESC);
             output.write(0x7B);
             output.write(0);
 
@@ -328,7 +561,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
 
         try {
             // Feed lines
-            output.write(0x1B);
+            output.write(ESC);
             output.write(0x4D);
             output.write(fontNumber);
 
@@ -361,7 +594,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
 
         try {
             // Feed lines
-            output.write(0x1D);
+            output.write(GS);
             output.write(0x21);
             output.write(n);
 
@@ -388,7 +621,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
 
         try {
             // Feed lines
-            output.write(0x1D);
+            output.write(GS);
             output.write(0x42);
             output.write(1);
 
@@ -404,7 +637,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
 
         try {
             // Feed lines
-            output.write(0x1D);
+            output.write(GS);
             output.write(0x42);
             output.write(0);
 
@@ -442,7 +675,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
 
         try {
             // Feed lines
-            output.write(0x1D);
+            output.write(GS);
             output.write(0x62);
             output.write(1);
 
@@ -458,7 +691,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
 
         try {
             // Feed lines
-            output.write(0x1D);
+            output.write(GS);
             output.write(0x62);
             output.write(0);
 
@@ -474,7 +707,7 @@ public class ESCPOSBasicPrinter implements ESCPOSPrinter {
 
         try {
             // Feed lines
-            output.write(0x1D);
+            output.write(GS);
             output.write(0x6B);
             output.write(4);
             output.write(contents.getBytes());
